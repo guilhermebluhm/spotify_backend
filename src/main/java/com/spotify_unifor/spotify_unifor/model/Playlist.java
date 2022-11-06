@@ -1,5 +1,6 @@
 package com.spotify_unifor.spotify_unifor.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,10 @@ public class Playlist implements Serializable {
         this.id = id;
         this.nomePlaylist = nomePlaylist;
     }
+
+    @ManyToOne
+    @JsonBackReference
+    private Usuario usuario;
 
     @OneToMany(
             cascade = CascadeType.ALL

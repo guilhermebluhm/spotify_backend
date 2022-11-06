@@ -12,5 +12,6 @@ public interface UsuarioService {
     Usuario saveUser(Usuario usuario);
     Usuario updateUser(Integer id, Usuario usuario);
     void deleteUser(Integer id);
+    Usuario addPlaylist(Integer idPlaylist, Integer idUsuario);
 
 }

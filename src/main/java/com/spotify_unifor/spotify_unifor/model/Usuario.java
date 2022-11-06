@@ -1,6 +1,7 @@
 package com.spotify_unifor.spotify_unifor.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,5 +32,16 @@ public class Usuario {
     private LocalDate dtNascimento;
     @Column(length = 1)
     private String genero;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(name = "usuario_playlist")
+    @JsonManagedReference
+    List<Playlist> lista_playlist = new ArrayList<>();
+
+    public void adicionarPlayListUsuario(Playlist playlist){
+        this.lista_playlist.add(playlist);
+    }
 
 }
