@@ -38,16 +38,10 @@ public class UsuarioImpl implements UsuarioService {
     @Override
     public Usuario updateUser(Integer id, Usuario usuario) {
         Optional<Usuario> byId = this.usr_repository.findById(id);
-        if(byId.isPresent()){
-            //TODO REFATORAR ISSO AQUI
-            byId.get().setNome(usuario.getNome());
-            byId.get().setSenha(usuario.getSenha());
-            byId.get().setGenero(usuario.getGenero());
-            byId.get().setEmail(usuario.getEmail());
-            byId.get().setGenero(usuario.getGenero());
-            return this.usr_repository.save(byId.get());
-        }
-        throw new RuntimeException("ops...");
+        return byId.map(x -> {
+            usuario.setId(x.getId());
+            return this.usr_repository.save(usuario);
+        }).orElseThrow(() -> new RuntimeException("erro"));
     }
 
     @Override

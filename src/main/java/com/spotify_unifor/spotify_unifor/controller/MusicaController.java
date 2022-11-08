@@ -34,4 +34,11 @@ public class MusicaController {
         return this.musica.updateMusic(id, musica);
     }
 
+    @GetMapping(value = "/pesquisa")
+    public List<Musica> getMusicaByQuery(@RequestParam("alias") String alias){
+
+        return this.musica.getMusicaByNameWithQuery(alias);
+
+    }
+
 }

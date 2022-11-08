@@ -33,17 +33,21 @@ public class MusicaImpl implements MusicaService {
     @Override
     public Musica updateMusic(Integer id, Musica musica) {
         Optional<Musica> byId = this.music_repo.findById(id);
-        if(byId.isPresent()){
-            byId.get().setNome(musica.getNome());
-            byId.get().setLink(musica.getLink());
-            return this.music_repo.save(byId.get());
-        }
-        throw new RuntimeException("erro");
+        return byId.map(x -> {
+            musica.setId(x.getId());
+            return this.music_repo.save(musica);
+        }).orElseThrow(() -> new RuntimeException("erro"));
     }
 
     @Override
     public void deleteMusic(Integer id) {
         Musica specifyMusic = this.getSpecifyMusic(id);
         this.music_repo.save(specifyMusic);
+    }
+
+    public List<Musica> getMusicaByNameWithQuery(String apelido){
+
+        return this.music_repo.getMusicaByName(apelido);
+
     }
 }

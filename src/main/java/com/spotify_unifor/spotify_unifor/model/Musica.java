@@ -22,6 +22,11 @@ public class Musica implements Serializable {
     @Column(length = 100)
     private String link;
 
+    public Musica(String nome, String link) {
+        this.nome = nome;
+        this.link = link;
+    }
+
     @ManyToOne
     @JsonBackReference
     private Playlist playlist;

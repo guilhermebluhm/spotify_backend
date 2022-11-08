@@ -33,6 +33,14 @@ public class Usuario {
     @Column(length = 1)
     private String genero;
 
+    public Usuario(String nome, String email, String senha, LocalDate dtNascimento, String genero) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.dtNascimento = dtNascimento;
+        this.genero = genero;
+    }
+
     @OneToMany(
             cascade = CascadeType.ALL
     )
