@@ -40,4 +40,9 @@ public class UsuarioController {
                                        @PathVariable("idPlaylist") Integer idPlaylist){
         return this.usuario.addPlaylist(idPlaylist, idUsuario);
     }
+
+    @GetMapping("/login")
+    public Usuario getLogin(@RequestParam("email") String email){
+        return this.usuario.getUserByEmail(email);
+    }
 }

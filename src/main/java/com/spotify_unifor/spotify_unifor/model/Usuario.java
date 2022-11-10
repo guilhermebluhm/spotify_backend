@@ -21,10 +21,9 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JsonProperty(required = true)
     @Column(length = 50)
     private String nome;
-    @JsonProperty(required = true)
+    @Column(unique = true)
     private String email;
     @Column(length = 100)
     private String senha;

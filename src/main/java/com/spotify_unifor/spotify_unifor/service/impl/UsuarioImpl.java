@@ -50,6 +50,12 @@ public class UsuarioImpl implements UsuarioService {
         this.usr_repository.delete(specifyUser);
     }
 
+    public Usuario getUserByEmail(String email){
+
+        return this.usr_repository.getUserByEmail(email);
+
+    }
+
     @Override
     @Transactional
     public Usuario addPlaylist(Integer idPlaylist, Integer idUsuario) {
