@@ -35,4 +35,10 @@ public class PlaylistController {
         return this.playlist.saveMusicOnPlaylist(idMusica, idPlaylist);
     }
 
+    @DeleteMapping("{idPlaylist}/musica/{idMusica}")
+    public Playlist removeMusicOnPlaylist(@PathVariable("idPlaylist") Integer idPlaylist,
+                                       @PathVariable("idMusica") Integer idMusica){
+        return this.playlist.removeMusicOnPlaylist(idMusica, idPlaylist);
+    }
+
 }

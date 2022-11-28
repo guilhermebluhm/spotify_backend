@@ -11,5 +11,6 @@ public interface PlaylistService {
     Playlist getSpecifyPlaylist(Integer id);
     void removePlaylist(Integer id);
     Playlist saveMusicOnPlaylist(Integer musicId, Integer playlistId);
+    Playlist removeMusicOnPlaylist(Integer playlistId, Integer musica);
 
 }

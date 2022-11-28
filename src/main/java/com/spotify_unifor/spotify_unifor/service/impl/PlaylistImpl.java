@@ -53,4 +53,14 @@ public class PlaylistImpl implements PlaylistService {
         return byId.get();
     }
 
+    @Override
+    public Playlist removeMusicOnPlaylist(Integer playlistId, Integer musica) {
+        Playlist specifyPlaylist = this.getSpecifyPlaylist(playlistId);
+
+        Musica specifyMusic = this.impl.getSpecifyMusic(musica);
+
+        specifyPlaylist.getLista_musicas().remove(specifyMusic);
+        return this.play_repository.save(specifyPlaylist);
+    }
+
 }
