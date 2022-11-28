@@ -24,10 +24,12 @@ public class Playlist implements Serializable {
     private String thumbnail;
     @Column(length = 100, unique = true)
     private String nomePlaylist;
+    private Boolean isPrivate;
 
-    public Playlist(Integer id, String nomePlaylist) {
-        this.id = id;
+    public Playlist(String thumbnail, String nomePlaylist, Boolean isPrivate) {
+        this.thumbnail = thumbnail;
         this.nomePlaylist = nomePlaylist;
+        this.isPrivate = isPrivate;
     }
 
     @ManyToOne
