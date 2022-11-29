@@ -39,6 +39,7 @@ public class Playlist implements Serializable {
     @OneToMany(
             cascade = CascadeType.ALL
     )
+    @JoinColumn(name = "playlist_musicas")
     @JsonManagedReference
     private List<Musica> lista_musicas = new ArrayList<>();
 

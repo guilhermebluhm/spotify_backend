@@ -43,6 +43,7 @@ public class Usuario {
     @OneToMany(
             cascade = CascadeType.ALL
     )
+    @JoinColumn(name = "usuario_playlist")
     @JsonManagedReference
     List<Playlist> lista_playlist = new ArrayList<>();
 

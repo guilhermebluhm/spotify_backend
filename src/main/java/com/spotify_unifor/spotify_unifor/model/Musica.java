@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Musica implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(length = 100)
     private String nome;
