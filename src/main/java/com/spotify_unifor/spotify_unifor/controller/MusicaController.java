@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/musica")
+@CrossOrigin("*")
 public class MusicaController {
 
     @Autowired

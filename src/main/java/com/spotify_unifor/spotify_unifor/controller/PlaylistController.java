@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/playlist")
+@CrossOrigin("*")
 public class PlaylistController {
 
     @Autowired
